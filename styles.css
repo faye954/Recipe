@@ -1,0 +1,183 @@
+/* Base styles */
+body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.font-geist-mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Custom range input styling */
+input[type="range"] {
+    -webkit-appearance: none;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 5px;
+    background-image: linear-gradient(#111827, #111827);
+    background-repeat: no-repeat;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #111827;
+    cursor: pointer;
+    box-shadow: 0 0 2px 0 #555;
+}
+
+input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #111827;
+    cursor: pointer;
+    box-shadow: 0 0 2px 0 #555;
+}
+
+/* Nutritional chart styling */
+.nutrition-chart .bar {
+    height: 8px;
+    border-radius: 4px;
+    background-color: #e5e7eb;
+    position: relative;
+    overflow: hidden;
+}
+
+.nutrition-chart .bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* Recipe card hover effect */
+.recipe-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.recipe-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Modal animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+#recipeModal, #helpModal {
+    animation: fadeIn 0.3s ease;
+}
+
+#recipeModal > div, #helpModal > div {
+    animation: slideIn 0.3s ease;
+}
+
+/* Badge styles */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1;
+    color: #4b5563;
+    background-color: #f3f4f6;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.badge-green {
+    color: #065f46;
+    background-color: #d1fae5;
+}
+
+.badge-blue {
+    color: #1e40af;
+    background-color: #dbeafe;
+}
+
+.badge-amber {
+    color: #92400e;
+    background-color: #fef3c7;
+}
+
+.badge-red {
+    color: #b91c1c;
+    background-color: #fee2e2;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Steps list styling */
+.steps-list {
+    counter-reset: step-counter;
+}
+
+.steps-list li {
+    position: relative;
+    padding-left: 2.5rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 0;
+}
+
+.steps-list li:before {
+    content: counter(step-counter);
+    counter-increment: step-counter;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    background-color: #f3f4f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+}
+
+.steps-list li:not(:last-child):after {
+    content: '';
+    position: absolute;
+    left: 0.875rem;
+    top: 1.75rem;
+    bottom: 0;
+    width: 1px;
+    background-color: #e5e7eb;
+    transform: translateX(-50%);
+}
