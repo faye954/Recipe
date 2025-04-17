@@ -121,38 +121,38 @@ function getDietTypeBadgeClass(dietType) {
 }
 
 /**
- * 获取饮食类型的中文翻译
+ * 获取饮食类型的英文标签
  * @param {string} dietType - 饮食类型
- * @returns {string} - 中文翻译
+ * @returns {string} - 英文标签
  */
 function getDietTypeLabel(dietType) {
     const dietTypeLabels = {
-        'vegetarian': '素食主义',
-        'vegan': '纯素食主义',
-        'lowCarb': '低碳水',
-        'lowFat': '低脂',
-        'glutenFree': '无麸质',
-        'dairyFree': '无乳制品',
-        'highProtein': '高蛋白',
-        'lowCalorie': '低卡路里'
+        'vegetarian': 'Vegetarian',
+        'vegan': 'Vegan',
+        'lowCarb': 'Low Carb',
+        'lowFat': 'Low Fat',
+        'glutenFree': 'Gluten-Free',
+        'dairyFree': 'Dairy-Free',
+        'highProtein': 'High Protein',
+        'lowCalorie': 'Low Calorie'
     };
     
     return dietTypeLabels[dietType] || dietType;
 }
 
 /**
- * 获取料理风格的中文翻译
+ * 获取料理风格的英文标签
  * @param {string} cuisine - 料理风格
- * @returns {string} - 中文翻译
+ * @returns {string} - 英文标签
  */
 function getCuisineLabel(cuisine) {
     const cuisineLabels = {
-        'chinese': '中式料理',
-        'western': '西式料理',
-        'japanese': '日式料理',
-        'korean': '韩式料理',
-        'italian': '意式料理',
-        'thai': '泰式料理'
+        'chinese': 'Chinese Cuisine',
+        'western': 'Western Cuisine',
+        'japanese': 'Japanese Cuisine',
+        'korean': 'Korean Cuisine',
+        'italian': 'Italian Cuisine',
+        'thai': 'Thai Cuisine'
     };
     
     return cuisineLabels[cuisine] || cuisine;
@@ -176,20 +176,20 @@ function createRecipeCard(recipe, score) {
             <div class="relative h-48 overflow-hidden">
                 <img src="${recipe.image}" alt="${recipe.name}" class="w-full h-full object-cover">
                 <div class="absolute top-2 right-2 bg-gray-900 text-white text-xs font-medium px-2 py-1 rounded-full">
-                    匹配度 ${score}%
+                    Match ${score}%
                 </div>
             </div>
             <div class="p-4">
                 <div class="flex items-center justify-between mb-2">
                     <h3 class="font-semibold text-lg">${recipe.name}</h3>
-                    <span class="text-sm text-gray-500">${recipe.cookingTime}分钟</span>
+                    <span class="text-sm text-gray-500">${recipe.cookingTime} mins</span>
                 </div>
                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">${recipe.description}</p>
                 <div class="flex items-center justify-between">
                     <div class="flex flex-wrap gap-1">
                         ${dietTypesBadges}
                     </div>
-                    <span class="text-sm font-medium">${recipe.calories} 卡路里</span>
+                    <span class="text-sm font-medium">${recipe.calories} Calories</span>
                 </div>
             </div>
         </div>
@@ -233,11 +233,11 @@ function createRecipeDetails(recipe) {
                     <img src="${recipe.image}" alt="${recipe.name}" class="w-full h-64 object-cover rounded-lg">
                 </div>
                 <div class="mb-6">
-                    <h4 class="text-lg font-medium mb-3">描述</h4>
+                    <h4 class="text-lg font-medium mb-3">Description</h4>
                     <p class="text-gray-600">${recipe.description}</p>
                 </div>
                 <div class="mb-6">
-                    <h4 class="text-lg font-medium mb-3">烹饪步骤</h4>
+                    <h4 class="text-lg font-medium mb-3">Cooking Steps</h4>
                     <ol class="steps-list space-y-4">
                         ${stepsList}
                     </ol>
@@ -246,43 +246,43 @@ function createRecipeDetails(recipe) {
             <div>
                 <div class="bg-gray-50 rounded-lg p-4 mb-6">
                     <div class="flex items-center justify-between mb-4">
-                        <h4 class="font-medium">基本信息</h4>
+                        <h4 class="font-medium">Basic Information</h4>
                     </div>
                     <div class="space-y-3">
                         <div class="flex justify-between">
-                            <span class="text-gray-600">料理风格</span>
+                            <span class="text-gray-600">Cuisine</span>
                             <span class="font-medium">${getCuisineLabel(recipe.cuisine)}</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">烹饪时间</span>
-                            <span class="font-medium">${recipe.cookingTime} 分钟</span>
+                            <span class="text-gray-600">Cooking Time</span>
+                            <span class="font-medium">${recipe.cookingTime} mins</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">难度</span>
+                            <span class="text-gray-600">Difficulty</span>
                             <span class="font-medium">${recipe.difficulty}</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">份量</span>
-                            <span class="font-medium">${recipe.servings} 人份</span>
+                            <span class="text-gray-600">Servings</span>
+                            <span class="font-medium">${recipe.servings} servings</span>
                         </div>
                         <div class="flex justify-between">
-                            <span class="text-gray-600">烹饪方式</span>
+                            <span class="text-gray-600">Cooking Method</span>
                             <span class="font-medium">${recipe.cookingMethod}</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="mb-6">
-                    <h4 class="text-lg font-medium mb-3">营养成分</h4>
+                    <h4 class="text-lg font-medium mb-3">Nutrition Facts</h4>
                     <div class="bg-gray-50 rounded-lg p-4">
                         <div class="flex justify-between items-center mb-3">
-                            <span class="text-gray-600">卡路里</span>
-                            <span class="font-medium">${recipe.calories} 千卡</span>
+                            <span class="text-gray-600">Calories</span>
+                            <span class="font-medium">${recipe.calories} kcal</span>
                         </div>
                         <div class="space-y-4 nutrition-chart">
                             <div>
                                 <div class="flex justify-between mb-1">
-                                    <span class="text-sm text-gray-600">蛋白质</span>
+                                    <span class="text-sm text-gray-600">Protein</span>
                                     <span class="text-sm font-medium">${recipe.protein}g</span>
                                 </div>
                                 <div class="bar">
@@ -291,7 +291,7 @@ function createRecipeDetails(recipe) {
                             </div>
                             <div>
                                 <div class="flex justify-between mb-1">
-                                    <span class="text-sm text-gray-600">碳水化合物</span>
+                                    <span class="text-sm text-gray-600">Carbohydrates</span>
                                     <span class="text-sm font-medium">${recipe.carbs}g</span>
                                 </div>
                                 <div class="bar">
@@ -300,38 +300,6 @@ function createRecipeDetails(recipe) {
                             </div>
                             <div>
                                 <div class="flex justify-between mb-1">
-                                    <span class="text-sm text-gray-600">脂肪</span>
-                                    <span class="text-sm font-medium">${recipe.fat}g</span>
-                                </div>
-                                <div class="bar">
-                                    <div class="bar-fill bg-yellow-500" style="width: ${(recipe.fat / maxNutritionValue) * 100}%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mb-6">
-                    <h4 class="text-lg font-medium mb-3">食材</h4>
-                    <ul class="bg-gray-50 rounded-lg p-4 divide-y divide-gray-100">
-                        ${ingredientsList}
-                    </ul>
-                </div>
-                
-                <div class="mb-6">
-                    <h4 class="text-lg font-medium mb-3">标签</h4>
-                    <div class="flex flex-wrap">
-                        ${tagsList}
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-medium mb-3">适合饮食</h4>
-                    <div class="flex flex-wrap">
-                        ${dietTypesLabels}
-                    </div>
-                </div>
-            </div>
         </div>
     `;
 }
